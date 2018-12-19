@@ -1,0 +1,31 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Base Template</title>
+    {% include 'base/css.html' %}
+    <link rel='stylesheet' href='{% static "css/main.css" %}' >
+
+    {% block base_head %} {% endblock %}
+
+   
+  </head>
+  <body>
+    {% include 'base/navbar.html' with brand_name='Samazon' %}
+    <div class="container-fluid">
+
+      <div class="row">
+          <div class="col-lg-12">
+             {% block content %}{% endblock %}
+
+          </div>
+
+      </div>
+
+    </div>
+    {% include 'base/js.html' %}
+  </body>
+</html>

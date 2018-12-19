@@ -1,0 +1,51 @@
+{% extends "base.html" %}
+{% block content %}
+<div class='container-fluid'>
+    <div class='row'>
+        <div class='col-lg-10'>
+            <div class='row'>
+                {% for obj in object_list %}
+                <div class='col'>
+                    {% include 'products/snippets/card.html' with instance=obj %}
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class='col-lg-2'>
+            {% include 'promo.html' %}
+        </div>
+    </div>
+</div>
+<div>
+    <p>
+        {% if tags %}
+        <h5>Trending Items!</h5>
+        {% endif %}
+    </p>
+    <div class='container-fluid'>
+        <div class='row row1'>
+            {% for obj in tags %}
+            <div class='col col1'>
+                {% include 'products/snippets/viewed-card.html' with instance=obj %}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+<div>
+    <p>
+        {% if user_viewed_objects %}
+        <h5>Recently Viewed Items!</h5>
+        {% endif %}
+    </p>
+    <div class='container-fluid'>
+        <div class='row row1'>
+            {% for viewed_obj in user_viewed_objects %}
+            <div class='col col1'>
+                {% include 'products/snippets/viewed-card.html' with instance=viewed_obj %}
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}
